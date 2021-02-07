@@ -1,3 +1,4 @@
+/*global require, module, __dirname*/
 const path = require('path');
 const webpack = require('webpack');
 
@@ -10,11 +11,11 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
-                options: { presets: ["@babel/env"] }
+                options: { presets: ['@babel/env'] }
             },
             {
                 test: /\.(css|sass|scss)$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     },
@@ -31,4 +32,4 @@ module.exports = {
         hotOnly: true
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
-}
+};
