@@ -1,8 +1,2 @@
 node_modules
 package-lock.json
-lint-report.html
-
-response.json
-results.json
-itemDetails.json
-itemDescription.json
