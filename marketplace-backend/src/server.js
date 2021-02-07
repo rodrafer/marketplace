@@ -46,7 +46,7 @@ app.get('/api/items', async (req, res) => {
         categories: categories,
         items: formatedItems
     };
-    
+
     res.status(200).send(results);
 });
 
@@ -77,7 +77,7 @@ app.get('/api/items/:id', async (req, res) => {
         sold_quantity: itemDetails.sold_quantity,
         description: itemDescription.plain_text
     };
-    
+
     const results = {
         author: {
             name: 'Rodrigo',
