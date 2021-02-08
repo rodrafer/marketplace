@@ -15,7 +15,13 @@ module.exports = {
             },
             {
                 test: /\.(css|sass|scss)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                loader: "react-image-element-loader",
+                exclude: /node_modules/
             }
         ]
     },
@@ -29,7 +35,8 @@ module.exports = {
         contentBase: path.join(__dirname, 'public/'),
         port: 3000,
         public: 'http://localhost:3000/dist/',
-        hotOnly: true
+        hotOnly: true,
+        historyApiFallback: true
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };
