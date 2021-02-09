@@ -15,7 +15,6 @@ app.get('/api/items', async (req, res) => {
         .then(response => response.json())
         .then(data => {
             rawItems = data.results;
-            console.log(rawItems)
             categoryFilter = data.filters.find(filter => filter.id === 'category');
         });
 
