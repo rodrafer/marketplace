@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['babel-polyfill', './src/index.js'],
     mode: 'development',
     module: {
         rules: [
@@ -36,7 +36,10 @@ module.exports = {
         port: 3000,
         public: 'http://localhost:3000/dist/',
         hotOnly: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            '/api': 'http://localhost:8000',
+        }
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };

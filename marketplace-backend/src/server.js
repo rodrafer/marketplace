@@ -11,10 +11,11 @@ app.get('/api/items', async (req, res) => {
     let categories = [];
     let formatedItems = [];
 
-    await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${q}`)
+    await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${q}&limit=4`)
         .then(response => response.json())
         .then(data => {
-            rawItems = data.results.slice(0, 4);
+            rawItems = data.results;
+            console.log(rawItems)
             categoryFilter = data.filters.find(filter => filter.id === 'category');
         });
 
@@ -29,7 +30,8 @@ app.get('/api/items', async (req, res) => {
             },
             picture: rawItem.thumbnail,
             condition: rawItem.condition,
-            free_shipping: rawItem.shipping.free_shipping
+            free_shipping: rawItem.shipping.free_shipping,
+            state_name: rawItem.address.state_name
         };
         formatedItems.push(formatedItem);
     });
@@ -74,6 +76,7 @@ app.get('/api/items/:id', async (req, res) => {
         picture: itemDetails.thumbnail,
         condition: itemDetails.condition,
         free_shipping: itemDetails.shipping.free_shipping,
+        state_name: itemDetails.address.state_name,
         sold_quantity: itemDetails.sold_quantity,
         description: itemDescription.plain_text
     };
