@@ -16,7 +16,7 @@ const SearchResultsPage = () => {
 
     useEffect(() => {
         const fetchData = () => {
-            fetch(`api/items?q=${searchedQuery}`)
+            fetch(`/api/items?q=${searchedQuery}`)
                 .then(response => response.json())
                 .then(responseBody => {
                     setItems(responseBody.items);
@@ -27,13 +27,18 @@ const SearchResultsPage = () => {
     }, [searchedQuery])
 
     return (
-        <div className="results-wrapper">
-            <div className="category-path">
+        <>
+            <div className="category-container">
                 {categories ? categories.map((category, key) => (
-                    <p key={key} className={categories.indexOf(category) !== categories.length - 1 ? 'category-item' : 'last-category'}>
-                        {categories.indexOf(category) !== categories.length - 1 ? `${category}\u00A0\u00A0>\u00A0\u00A0`: category}
+                    <p key={key}
+                       className={
+                           categories.indexOf(category) !== categories.length - 1 ? 'category-item' : 'last-category'
+                        }>
+                        {categories.indexOf(category) !== categories.length - 1 ?
+                        `${category}\u00A0\u00A0>\u00A0\u00A0`:
+                        category}
                     </p>
-                )) : <p></p>}
+                )) : ''}
             </div>
             <div className="items-container">
                 {items ? items.map((item, key) => (
@@ -43,7 +48,7 @@ const SearchResultsPage = () => {
                     </Link>
                 )) : <h1 className="loading-results">Buscando {searchedQuery}...</h1>}
             </div>
-        </div>
+        </>
     )
 }
 

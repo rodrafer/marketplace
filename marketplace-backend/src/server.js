@@ -35,9 +35,9 @@ app.get('/api/items', async (req, res) => {
         formatedItems.push(formatedItem);
     });
 
-    categoryFilter.values[0].path_from_root.forEach(path => {
+    categoryFilter ? categoryFilter.values[0].path_from_root.forEach(path => {
         categories.push(path.name);
-    });
+    }) : categories.push('');
 
     const results = {
         author: {
@@ -75,7 +75,6 @@ app.get('/api/items/:id', async (req, res) => {
         picture: itemDetails.thumbnail,
         condition: itemDetails.condition,
         free_shipping: itemDetails.shipping.free_shipping,
-        state_name: itemDetails.address.state_name,
         sold_quantity: itemDetails.sold_quantity,
         description: itemDescription.plain_text
     };

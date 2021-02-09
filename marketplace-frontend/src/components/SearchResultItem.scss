@@ -1,9 +1,10 @@
 @supports (grid-area: auto) {
     .result-item-container {
         width: 80vw;
+        height: 212px;
         display: grid;
         grid-template-columns: 212px auto 200px;
-        grid-template-rows: 80px 132px;
+        grid-template-rows: 80px auto;
         grid-template-areas: 
             "picture specs location"
             "picture title empty";
