@@ -12,10 +12,10 @@ const SearchBar = () => {
             <img className="header_logo" src={companyLogo}/>
             <div className="header-search">
                 <input className="header-search_input"
-                       type="text"
-                       placeholder="Nunca dejes de buscar"
-                       value={query}
-                       onChange={event => setQuery(event.target.value)}/>
+                    type="text"
+                    placeholder="Nunca dejes de buscar"
+                    value={query}
+                    onChange={event => setQuery(event.target.value)}/>
                 <Link to={`/items?search=${query}`}>
                     <figure className="header-search_figure">
                         <img className="header-search_icon" src={searchIcon}/>
@@ -23,7 +23,7 @@ const SearchBar = () => {
                 </Link>
             </div>
         </header>
-    )
-}
+    );
+};
 
 export default SearchBar;

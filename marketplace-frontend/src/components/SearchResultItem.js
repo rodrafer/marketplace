@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchResultItem.scss';
-import shippingIcon from '../assets/ic_shipping@2x.png.png'
+import shippingIcon from '../assets/ic_shipping@2x.png.png';
 
 const SearchResultItem = ({ item }) => {
     return (
@@ -13,7 +13,7 @@ const SearchResultItem = ({ item }) => {
             <p className="item-location">{item.state_name}</p>
             <p className="item-title">{item.title}</p>
         </div>
-    )
-}
+    );
+};
 
 export default SearchResultItem;

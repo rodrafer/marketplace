@@ -8,7 +8,7 @@
     "start": "npx webpack-dev-server --mode development",
     "build": "npx webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "linters": "eslint -f html public/* src/*.js webpack.config.js > lint-report.html"
+    "linters": "eslint -f html public/* src/*.js src/components/*.js src/pages/*.js webpack.config.js > lint-report.html"
   },
   "keywords": [],
   "author": "",

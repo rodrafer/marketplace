@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/,
-                loader: "react-image-element-loader",
+                loader: 'react-image-element-loader',
                 exclude: /node_modules/
             }
         ]

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './ItemDetailsPage.scss';
 
-const ItemDetailsPage = ({ match }, { itemCategories }) => {
+const ItemDetailsPage = ({ match }) => {
     let itemId = match.params.id;
-    console.log(itemCategories)
 
     const [item, setItem] = useState();
 
@@ -14,13 +13,13 @@ const ItemDetailsPage = ({ match }, { itemCategories }) => {
                 .then(responseBody => {
                     setItem(responseBody.item);
                 });
-        }
+        };
         fetchData();
-    }, [itemId])
+    }, [itemId]);
 
     return (
         <>
-            <div className="item-category-container">
+            {/* <div className="item-category-container">
                 {itemCategories ? itemCategories.map((category, key) => (
                     <p key={key}
                         className={
@@ -31,7 +30,7 @@ const ItemDetailsPage = ({ match }, { itemCategories }) => {
                         category}
                     </p>
                 )) : ''}
-            </div>
+            </div> */}
             <div className="item-details-container">
                 {item ?
                     <div className="item-details">
@@ -49,10 +48,10 @@ const ItemDetailsPage = ({ match }, { itemCategories }) => {
                             <p className="item-description">{item.description}</p>
                         </div>
                     </div>
-                : ''}
+                    : ''}
             </div>
         </>
-    )
-}
+    );
+};
 
 export default ItemDetailsPage;
