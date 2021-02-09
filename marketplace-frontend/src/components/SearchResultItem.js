@@ -3,8 +3,8 @@ import './SearchResultItem.scss';
 import shippingIcon from '../assets/ic_shipping@2x.png.png';
 
 const formatNumber = (number) => {
-    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-}
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+};
 
 const SearchResultItem = ({ item }) => {
     return (

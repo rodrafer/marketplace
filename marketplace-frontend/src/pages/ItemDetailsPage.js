@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './ItemDetailsPage.scss';
 
 const formatNumber = (number) => {
-    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-}
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+};
 
 const ItemDetailsPage = ({ match }) => {
     let itemId = match.params.id;
