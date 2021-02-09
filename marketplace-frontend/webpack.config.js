@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['babel-polyfill', './src/index.js'],
     mode: 'development',
     module: {
         rules: [
@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/,
-                loader: "react-image-element-loader",
+                loader: 'react-image-element-loader',
                 exclude: /node_modules/
             }
         ]
@@ -36,7 +36,12 @@ module.exports = {
         port: 3000,
         public: 'http://localhost:3000/dist/',
         hotOnly: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            '/api': 'http://localhost:8000/',
+            secure: false,
+            changeOrigin: true
+        }
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };

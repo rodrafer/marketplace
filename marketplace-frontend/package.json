@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "proxy": "http://localhost:8000/",
   "scripts": {
     "start": "npx webpack-dev-server --mode development",
     "build": "npx webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "linters": "eslint -f html public/* src/*.js webpack.config.js > lint-report.html"
+    "linters": "eslint -f html public/* src/*.js src/components/*.js src/pages/*.js webpack.config.js > lint-report.html"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^5.0.1",
     "eslint": "^7.19.0",
     "eslint-plugin-html": "^6.1.1",
@@ -34,6 +36,7 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "whatwg-fetch": "^3.5.0"
   }
 }

@@ -1,0 +1,92 @@
+@supports (grid-area: auto) {
+    .item-category-container {
+        width: 80vw;
+        min-width: 950px;
+        min-height: 32px;
+        font-size: 14px;
+        color: #999999;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    
+        .category-item,
+        .last-category {
+            margin: 16px 0;
+        }
+    
+        .last-category {
+            color: #666666;
+            font-weight: bold;
+        }
+    }
+
+    .item-details {
+        width: 80vw;
+        min-width: 950px;
+        display: grid;
+        grid-template-columns: 750px minmax(200px, calc(80vw - 750px));
+        grid-template-rows: 700px auto;
+        grid-template-areas: 
+            "picture info"
+            "description empty";
+        background-color: white;
+    }
+
+    .item-detail-picture {
+        grid-area: picture;
+        max-height: 680px;
+        max-width: 680px;
+        display: flex;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .item-detail-info {
+        grid-area: info;
+
+        .item-condition {
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .item-title {
+            margin-bottom: 32px;
+            font-size: 24px;
+        }
+
+        .item-price {
+            margin-top: 0;
+            margin-bottom: 32px;
+            font-size: 46px;
+            font-weight: normal;
+        }
+
+        .buy-button {
+            width: calc(80vw - 782px);
+            min-width: 200px - 32px;
+            height: 40px;
+            color: white;
+            background-color: #3483FA;
+            border: none;
+            border-radius: 4px;
+        }
+    }
+
+    .item-detail-description {
+        grid-area: description;
+        margin-left: 32px;
+        margin-bottom: 32px;
+
+        .item-description-title {
+            margin-bottom: 32px;
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        .item-description {
+            font-size: 16px;
+        }
+    }
+}

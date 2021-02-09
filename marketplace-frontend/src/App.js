@@ -23,8 +23,8 @@ class App extends Component {
                     </main>
                 </div>
             </Router>
-        )
+        );
     }
-};
+}
 
 export default hot(module)(App);
