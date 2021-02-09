@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './ItemDetailsPage.scss';
 
+const formatNumber = (number) => {
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+}
+
 const ItemDetailsPage = ({ match }) => {
     let itemId = match.params.id;
 
@@ -30,17 +34,23 @@ const ItemDetailsPage = ({ match }) => {
                         category}
                     </p>
                 )) : ''}
+                style={{marginRight: spacing + 'em'}}
             </div> */}
             <div className="item-details-container">
                 {item ?
                     <div className="item-details">
-                        <img className="item-detail-picture" src={item.picture}/>
+                        <img className="item-detail-picture" src={item.picture.url}/>
                         <div className="item-detail-info">
                             <p className="item-condition">
                                 {item.condition === 'new' ? 'Nuevo' : 'Usado'} - {item.sold_quantity} vendidos
                             </p>
                             <h2 className="item-title">{item.title}</h2>
-                            <h1 className="item-price">$ {item.price.amount}</h1>
+                            <h1 className="item-price">
+                                ${'\u00A0' + formatNumber(item.price.amount)}
+                                <sup style={{fontSize: '0.5em'}}>
+                                    {item.price.decimals}
+                                </sup> {item.price.currency !== 'ARS' ? item.price.currency : ''}
+                            </h1>
                             <button className="buy-button">Comprar</button>
                         </div>
                         <div className="item-detail-description">
