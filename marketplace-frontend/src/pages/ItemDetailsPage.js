@@ -6,9 +6,8 @@ const formatNumber = (number) => {
     return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 };
 
-const ItemDetailsPage = ({ match, location, routeProps }) => {
+const ItemDetailsPage = ({ match, location }) => {
     let itemId = match.params.id;
-    console.log(routeProps)
 
     const [item, setItem] = useState();
     const [categories, setCategories] = useState();

@@ -10,8 +10,8 @@ const CategoryPath = ({ categories }) => {
                         categories.indexOf(category) !== categories.length - 1 ? 'category-item' : 'last-category'
                     }>
                     {categories.indexOf(category) !== categories.length - 1 ?
-                    `${category}\u00A0\u00A0>\u00A0\u00A0`:
-                    category}
+                        `${category}\u00A0\u00A0>\u00A0\u00A0`:
+                        category}
                 </p>
             ))}
         </div>
