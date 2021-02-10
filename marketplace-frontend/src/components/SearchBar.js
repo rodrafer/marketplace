@@ -7,10 +7,6 @@ import searchIcon from '../assets/ic_Search@2x.png.png';
 const SearchBar = ({ routeProps }) => {
     const [query, setQuery] = useState('');
 
-    window.onload = () => {
-        routeProps.history.replace('/');
-    };
-
     const enterSearch = () => {
         routeProps.history.push(`/items?search=${query}`);
     };
