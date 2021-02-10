@@ -9,11 +9,10 @@ const SearchBar = ({ routeProps }) => {
 
     window.onload = () => {
         routeProps.history.replace('/');
-    }
+    };
 
     const enterSearch = () => {
         routeProps.history.push(`/items?search=${query}`);
-        console.log('wrong ' + routeProps.history)
     };
 
     const backToHome = (event) => {
