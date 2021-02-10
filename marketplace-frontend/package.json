@@ -11,7 +11,7 @@
     "linters": "eslint -f html public/* src/*.js src/components/*.js src/pages/*.js webpack.config.js > lint-report.html"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rodrigo Fernández",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.12.13",
