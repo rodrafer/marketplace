@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './SearchResultsPage.scss';
 import SearchResultItem from '../components/SearchResultItem';
+import CategoryPath from '../components/CategoryPath';
 
 const useQuery = () => {
     return new URLSearchParams(useLocation().search);
@@ -28,21 +29,15 @@ const SearchResultsPage = () => {
 
     return (
         <>
-            <div className="category-container">
-                {categories ? categories.map((category, key) => (
-                    <p key={key}
-                        className={
-                            categories.indexOf(category) !== categories.length - 1 ? 'category-item' : 'last-category'
-                        }>
-                        {categories.indexOf(category) !== categories.length - 1 ?
-                            `${category}\u00A0\u00A0>\u00A0\u00A0`:
-                            category}
-                    </p>
-                )) : ''}
-            </div>
+            {categories ? <CategoryPath categories={categories}/> : ''}
             <div className="items-container">
                 {items ? items.map((item, key) => (
-                    <Link to={`/items/${item.id}`} key={key} className="item-link">
+                    <Link key={key}
+                        className="item-link"
+                        to={{
+                            pathname: `/items/${item.id}`,
+                            itemProps: categories
+                        }}>
                         <SearchResultItem item={item}/>
                         <div className="line-division"></div>
                     </Link>

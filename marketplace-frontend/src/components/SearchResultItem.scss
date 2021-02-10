@@ -2,6 +2,7 @@
     .result-item-container {
         width: 80vw;
         height: 212px;
+        min-width: 1000px;
         display: grid;
         grid-template-columns: 212px auto 200px;
         grid-template-rows: 80px auto;

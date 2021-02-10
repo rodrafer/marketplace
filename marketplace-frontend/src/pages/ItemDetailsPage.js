@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './ItemDetailsPage.scss';
+import CategoryPath from '../components/CategoryPath';
 
 const formatNumber = (number) => {
     return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 };
 
-const ItemDetailsPage = ({ match }) => {
+const ItemDetailsPage = ({ match, location, routeProps }) => {
     let itemId = match.params.id;
+    console.log(routeProps)
 
     const [item, setItem] = useState();
+    const [categories, setCategories] = useState();
 
     useEffect(() => {
         const fetchData = () => {
@@ -16,6 +19,7 @@ const ItemDetailsPage = ({ match }) => {
                 .then(response => response.json())
                 .then(responseBody => {
                     setItem(responseBody.item);
+                    setCategories(location.itemProps);
                 });
         };
         fetchData();
@@ -23,19 +27,7 @@ const ItemDetailsPage = ({ match }) => {
 
     return (
         <>
-            {/* <div className="item-category-container">
-                {itemCategories ? itemCategories.map((category, key) => (
-                    <p key={key}
-                        className={
-                            categories.indexOf(category) !== categories.length - 1 ? 'category-item' : 'last-category'
-                        }>
-                        {categories.indexOf(category) !== categories.length - 1 ?
-                        `${category}\u00A0\u00A0>\u00A0\u00A0`:
-                        category}
-                    </p>
-                )) : ''}
-                style={{marginRight: spacing + 'em'}}
-            </div> */}
+            {categories ? <CategoryPath categories={categories}/> : ''}
             <div className="item-details-container">
                 {item ?
                     <div className="item-details">

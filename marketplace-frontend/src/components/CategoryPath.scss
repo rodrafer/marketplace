@@ -1,0 +1,21 @@
+.category-container {
+    width: 80vw;
+    min-height: 32px;
+    min-width: 1000px;
+    font-size: 14px;
+    color: #999999;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .category-item,
+    .last-category {
+        margin: 16px 0;
+    }
+
+    .last-category {
+        color: #666666;
+        font-weight: bold;
+    }
+}
