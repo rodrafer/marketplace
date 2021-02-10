@@ -65,7 +65,7 @@ app.get('/api/items/:id', async (req, res) => {
     await fetch(`https://api.mercadolibre.com/items/${id}/description`)
         .then(response => response.json())
         .then(data => {
-            itemDescription = data
+            itemDescription = data;
         });
 
     const formatedItem = {
@@ -99,13 +99,13 @@ let server = app.listen(PORT, () => console.log(`Server listening on port ${PORT
 process.on('uncaughtException', (err) => {
     console.info('uncaughtException signal received: ' + err);
     console.log('Closing http server.');
-    server.close(() => console.log('Http server closed.'))
+    server.close(() => console.log('Http server closed.'));
 });
 
 process.on('SIGTERM', (err) => {
     console.info('SIGTERM signal received: ' + err);
     console.log('Closing http server.');
-    server.close(() => console.log('Http server closed.'))
+    server.close(() => console.log('Http server closed.'));
 });
 
 /* To kill the server process:

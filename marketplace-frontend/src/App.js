@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <SearchBar />
+                    <Route path="/" render={props => <SearchBar routeProps={props}/>}/>
                     <main className="main-content">
                         <Switch>
                             <Route path="/items" component={SearchResultsPage} exact />
