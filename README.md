@@ -37,25 +37,21 @@ You can perform as many search as you want, and if you want to return to the Hom
 
 ## Built With
 
-The following are the main technologies used to build this applications.
-
+The following are the main technologies used to build this application:
 ### Backend
 * [Node.js](https://nodejs.org/en/) - The JavaScript runtime on which the server is built 
 * [Express.js](http://expressjs.com/) - Used to create a server for Node.js
-
 ### Frontend
 * [React.js](https://reactjs.org/) - The web framework used to build the app's user interface
 * [Webpack.js](https://webpack.js.org/) - Used to build the app
-
 ### Transpilation
 * [Babeljs](https://babeljs.io/) - To transpile JavaScript ES6 syntax into browser syntax
-
 ### Linting
 * [Eslint](https://eslint.org/) - To format the code
 
 ## Author
 
-* **Rodrigo Fernández**
+**Rodrigo Fernández**
 
 ## License
 This project is licensed under the [ISC](https://opensource.org/licenses/ISC) License.
